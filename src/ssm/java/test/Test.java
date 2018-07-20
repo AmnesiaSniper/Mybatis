@@ -18,7 +18,6 @@ public class Test {
 
 		String config = "mybatis-config.xml";
 		// 读取mybatis配置文件
-
 		try {
 			InputStream inputStream = Resources.getResourceAsStream(config);
 			// 初始化mybatis，创建SqlSessionFactory的实例
@@ -28,9 +27,14 @@ public class Test {
 
 			// 创建集合
 			List<Student> list = null;
+			list=session.selectList("getStudentAll");
+			
+			for (Student s : list) {
+				System.out.println(s.getStu_birthday());
+			}
 			// 执行映射文件方法
-			session.selectList("GetAll", list);
-			System.out.println(session.selectList("GetAll", list));
+			session.selectList("getStudentAll", list);
+			System.out.println(session.selectList("getStudentAll", list));
 			// 提交会话
 			session.commit();
 			// 关闭连接
