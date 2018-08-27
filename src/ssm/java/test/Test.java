@@ -17,27 +17,30 @@ public class Test {
 		// TODO Auto-generated method stub
 
 		String config = "mybatis-config.xml";
-		// ¶ÁÈ¡mybatisÅäÖÃÎÄ¼ş
+		// è¯»å–mybatisé…ç½®æ–‡ä»¶
 		try {
 			InputStream inputStream = Resources.getResourceAsStream(config);
-			// ³õÊ¼»¯mybatis£¬´´½¨SqlSessionFactoryµÄÊµÀı
+			// åˆå§‹åŒ–mybatisï¼Œåˆ›å»ºSqlSessionFactoryçš„å®ä¾‹
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-			// ´´½¨SqlSession¶ÔÏóµÄÊµÀı
+			// åˆ›å»ºSqlSessionå¯¹è±¡çš„å®ä¾‹
 			SqlSession session = sqlSessionFactory.openSession();
 
-			// ´´½¨¼¯ºÏ
+//			Student stu = new Student();
+//			stu.setStu_id(2);
+			// åˆ›å»ºé›†åˆ
 			List<Student> list = null;
-			list=session.selectList("getStudentAll");
-			
+			list=session.selectList("getStudentOne",2);
+		session.insert("addStudent",new Student(9,"å°å“ˆ","ç”·",3,null));
 			for (Student s : list) {
+				System.out.println(s);
 				System.out.println(s.getStu_birthday());
 			}
-			// Ö´ĞĞÓ³ÉäÎÄ¼ş·½·¨
+			// æ‰§è¡Œæ˜ å°„æ–‡ä»¶æ–¹æ³•
 			session.selectList("getStudentAll", list);
 			System.out.println(session.selectList("getStudentAll", list));
-			// Ìá½»»á»°
+			// æäº¤ä¼šè¯
 			session.commit();
-			// ¹Ø±ÕÁ¬½Ó
+			// å…³é—­è¿æ¥
 			session.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -9,8 +9,8 @@ public class Student {
 	private String stu_sex;
 	private int stu_age;
 	
-//	@DateTimeFormat(pattern="yyyy-MM-dd")//Ò³ÃæĞ´ÈëÊı¾İ¿âÊ±¸ñÊ½»¯
-//	@JSONField(format="yyyy-MM-dd")//Êı¾İ¿âµ¼³öÒ³ÃæÊ±json¸ñÊ½»¯
+//	@DateTimeFormat(pattern="yyyy-MM-dd")//é¡µé¢å†™å…¥æ•°æ®åº“æ—¶æ ¼å¼åŒ–
+//	@JSONField(format="yyyy-MM-dd")//æ•°æ®åº“å¯¼å‡ºé¡µé¢æ—¶jsonæ ¼å¼åŒ–
 	
 	
 	

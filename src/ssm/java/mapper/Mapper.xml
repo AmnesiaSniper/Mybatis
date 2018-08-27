@@ -5,13 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="ssm.java.bean.Student">
 	<select id="getStudentAll" resultType="Stu">
+	<![CDATA[
 	select * from Student
+	]]>
 	</select>
 	<select id="getStudentOne" parameterType="int" resultType="Stu">
-		select * from Student
+	<![CDATA[
+	select * from Student where stu_id=#{stu_id}
+	]]>
 	</select>
 	<select id="addStudent" parameterType="Stu">
-		select * from Student
+		<![CDATA[
+		insert into Student values(stu_id=#{stu_id},stu_name=#{stu_name},stu_sex=#{stu_sex},stu_age=#{stu_age},stu_birthday=#{stu_birthday})
+		]]>
 	</select>
 	<select id="delStudent" parameterType="int">
 		select * from Student
